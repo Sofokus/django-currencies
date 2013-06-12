@@ -1,8 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from currencies.managers import CurrencyManager
 
 
 class Currency(models.Model):
+
+    objects = CurrencyManager()
+
     code = models.CharField(_('code'), max_length=3)
     name = models.CharField(_('name'), max_length=35)
     symbol = models.CharField(_('symbol'), max_length=4, blank=True)
